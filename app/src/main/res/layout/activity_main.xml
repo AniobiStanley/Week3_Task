@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--Parent Layout-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,91 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/light_dark_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Theme"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/good_morning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="monserrat"
-        android:text="Good morning!"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/text_input_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/heart_Logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        app:layout_constraintBottom_toBottomOf="@+id/good_morning"
-        app:layout_constraintStart_toEndOf="@+id/good_morning"
-        app:layout_constraintTop_toTopOf="@+id/good_morning"
-        app:srcCompat="@drawable/ic_hearts_icon" />
-
-    <ImageView
-        android:id="@+id/small_left_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="29dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_input_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toEndOf="@+id/heart_Logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_top_left_logo" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="117dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="@color/white"
-        android:hint="Search"
-        app:fontFamily="@font/montserrat"
-        app:startIconDrawable="@drawable/ic_search_icon_vector"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/search_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="13sp"
-            android:textStyle="normal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <!--ScrollView containing the Shapeable imageView, TextViews, Buttons, and 3*3 grid Images-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/message_btn"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:ignore="MissingConstraints">
 
+        <!--Constrained Layout inside the scrollView-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -143,10 +68,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginHorizontal="16dp"
                 android:fontFamily="@font/roboto"
-                android:backgroundTint="@color/black"
                 android:text="FOLLOW STAN"
-                app:colorPrimary="@color/black"
-                android:textColor="@color/white"
                 android:textSize="13sp"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -161,10 +83,10 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="513dp"
-                app:colorPrimary="@color/white"
                 android:fontFamily="@font/roboto"
+                android:backgroundTint="?attr/colorSecondary"
+                android:textColor="?attr/colorOnSecondary"
                 android:text="MESSAGE"
-                android:textColor="@color/black"
                 android:textSize="13sp"
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -173,10 +95,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/follow_btn"
                 app:layout_constraintVertical_bias="0.0"
-                android:backgroundTint="@color/white"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp" />
-
+            <!--Linear Layout containing the 3*3 grid images-->
             <LinearLayout
                 android:id="@+id/grid_img_linear_layout"
                 android:layout_width="match_parent"
@@ -184,13 +105,15 @@
                 tools:layout_editor_absoluteX="50dp"
                 tools:layout_editor_absoluteY="394dp"
                 app:layout_constraintTop_toBottomOf="@id/message_btn"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/top_grid_img_linear_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
                     <ImageView
                         android:id="@+id/grid_img_00"
@@ -199,18 +122,17 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="43dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_marginLeft="4dp"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_00" />
 
                     <ImageView
                         android:id="@+id/grid_img_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="43dp"
                         android:layout_marginLeft="11dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_toRightOf="@id/grid_img_00"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_01" />
 
                     <ImageView
@@ -219,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="43dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_toRightOf="@id/grid_img_01"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_02" />
 
 
@@ -229,7 +151,8 @@
                     android:id="@+id/mid_grid_img_linear_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
                     <ImageView
                         android:id="@+id/grid_img_10"
@@ -238,28 +161,25 @@
                         android:layout_marginTop="11dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_below="@id/grid_img_00"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_10" />
 
                     <ImageView
                         android:id="@+id/grid_img_11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
+                        android:layout_weight="1"
                         android:layout_marginTop="11dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_below="@id/grid_img_01"
-                        android:layout_toRightOf="@id/grid_img_10"
                         app:srcCompat="@drawable/grid_photo_11" />
 
                     <ImageView
                         android:id="@+id/grid_img_12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/grid_img_02"
                         android:layout_marginTop="11dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_toRightOf="@id/grid_img_11"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_12" />
 
 
@@ -269,7 +189,8 @@
                     android:id="@+id/bottom_grid_img_linear_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
                     <ImageView
                         android:id="@+id/grid_img_20"
@@ -278,18 +199,16 @@
                         android:layout_marginTop="13dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_below="@id/grid_img_10"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_20" />
 
                     <ImageView
                         android:id="@+id/grid_img_21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/grid_img_11"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="13dp"
                         android:layout_marginEnd="11dp"
-                        android:layout_toRightOf="@id/grid_img_20"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_21" />
 
                     <ImageView
@@ -299,25 +218,24 @@
                         android:layout_marginTop="13dp"
                         android:layout_marginStart="11dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_below="@id/grid_img_12"
-                        android:layout_toRightOf="@id/grid_img_21"
+                        android:layout_weight="1"
                         app:srcCompat="@drawable/grid_photo_22" />
 
 
                 </LinearLayout>
 
             </LinearLayout>
-
+            <!--The last/See More Button, below the activity -->
             <Button
                 android:id="@+id/see_more_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SEE MORE"
                 android:fontFamily="@font/roboto"
-                android:textColor="@color/black"
                 android:textSize="13sp"
-                android:backgroundTint="@color/white"
                 app:strokeColor="@color/black"
+                android:backgroundTint="?attr/colorSecondary"
+                android:textColor="?attr/colorOnSecondary"
                 app:strokeWidth="2dp"
                 android:gravity="center"
                 android:layout_marginTop="36dp"
@@ -330,7 +248,94 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
+
+
+    <!--Dark/Light mode tuggle mode-->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/light_dark_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theme"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!--Good morning TextView-->
+    <TextView
+        android:id="@+id/good_morning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="monserrat"
+        android:text="Good morning!"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/text_input_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Hearts imageView-->
+    <ImageView
+        android:id="@+id/heart_Logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/good_morning"
+        app:layout_constraintStart_toEndOf="@+id/good_morning"
+        app:layout_constraintTop_toTopOf="@+id/good_morning"
+        app:srcCompat="@drawable/ic_hearts_icon" />
+
+    <!--Left shapes logo-->
+    <ImageView
+        android:id="@+id/small_left_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="29dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_input_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toEndOf="@+id/heart_Logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_top_left_logo" />
+
+    <!--Search TextInput Layout-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="@color/white"
+        android:hint="Search"
+        app:fontFamily="@font/montserrat"
+        app:startIconDrawable="@drawable/ic_search_icon_vector"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="13sp"
+            android:textStyle="normal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

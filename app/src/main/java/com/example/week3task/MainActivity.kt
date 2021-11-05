@@ -3,28 +3,29 @@ package com.example.week3task
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CompoundButton
-import android.widget.Switch
 import androidx.appcompat.app.AppCompatDelegate
-import android.R
 import android.view.View
+import android.widget.Button
+import androidx.appcompat.widget.SwitchCompat
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var switch : Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
+        supportActionBar?.hide() //Hide action bar
 
 
+        var switch = findViewById<SwitchCompat>(R.id.light_dark_mode) //Initialize switch for dark/light mode switching
 
-        val switch = findViewById<Switch>(R.id.mode_switch) as Switch
-        switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        //setting onClickListener for the switch and action.
+        switch.setOnClickListener {
+            if (switch.isChecked) {
                 // The toggle is enabled
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                switch.text="Set a mode"
             } else {
                 // The toggle is disabled
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
